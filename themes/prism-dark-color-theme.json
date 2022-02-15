@@ -6,7 +6,7 @@
     "focusBorder": "#ffbb33ff",
     "foreground": "#fafafaff",
     "widget.shadow": "#3d4041ff",
-    "selection.background": "#ffbb33ff",
+    "selection.background": "#4a4d4eff",
     "errorForeground": "#ff6666ff",
     "textLink.foreground": "#ffbb33ff",
     "textLink.activeForeground": "#ffd44cff",
@@ -57,6 +57,7 @@
     "activityBar.activeBackground": "#ffbb331a",
     "activityBar.activeFocusBorder": "#ffbb33ff",
     "sideBar.background": "#242728ff",
+    "sideBar.border": "#313435ff",
     "sideBarSectionHeader.background": "#242728ff",
     "minimap.selectionHighlight": "#ffbb3366",
     "minimap.errorHighlight": "#ff666666",
@@ -82,12 +83,14 @@
     "editorLineNumber.activeForeground": "#c7c7c7ff",
     "editorCursor.background": "#242728ff",
     "editorCursor.foreground": "#ffbb33ff",
-    "editor.selectionBackground": "#ffbb3366",
-    "editor.wordHighlightBackground": "#313435ff",
-    "editor.findMatchHighlightBackground": "#fafafa1a",
-    "editor.findMatchBorder": "#ffbb33ff",
+    "editor.selectionBackground": "#4a4d4eff",
+    "editor.wordHighlightBackground": "#292c2dff",
+    "editor.findMatchBackground": "#ffbb331a",
+    "editor.findMatchHighlightBackground": "#ffbb334d",
+    "editor.findRangeHighlightBackground": "#ffbb330d",
     "editor.lineHighlightBackground": "#313435ff",
     "editorLink.activeForeground": "#ffbb33ff",
+    "editor.rangeHighlightBackground": "#ffbb3333",
     "editorWhitespace.foreground": "#3d4041ff",
     "editorIndentGuide.background": "#313435ff",
     "editorIndentGuide.activeBackground": "#ffbb33ff",
@@ -187,7 +190,7 @@
       "name": "Comment",
       "scope": "comment",
       "settings": {
-        "foreground": "#ff66661a"
+        "foreground": "#798286ff"
       }
     },
     {

@@ -1,59 +1,60 @@
 # yaml-language-server: $schema=schemas/color-theme.json
-name: !variant?  
+name: !variant?
   light: Prism (Light)
   dark: Prism (Dark)
 
-type: !variant? 
+type: !variant?
   light: light
   dark: dark
 
 semanticHighlighting: true
 
 refs:
-  - &background !color
-    light: hsl(200, 5%, 98%)
-    dark:  hsl(200, 5%, 15%)
-  - &foreground !color 
+  - !color &background
+    light: "#FFFFFF" # hsl(200, 5%, 98%)
+    dark: hsl(200, 5%, 15%)
+  - !color &foreground
     light: hsl(200, 5%, 15%)
-    dark:  hsl(200, 5%, 98%)
-  - &white !color 
+    dark: hsl(200, 5%, 98%)
+  - !color &white
     light: hsl(200, 5%, 99%)
     dark: hsl(200, 5%, 99%)
-  - &gray  !color 
+  - !color &gray
     light: hsl(200, 5%, 50%)
-    dark:  hsl(200, 5%, 50%)
-  - &black !color 
+    dark: hsl(200, 5%, 50%)
+  - !color &black
     light: hsl(200, 5%, 1%)
-    dark:  hsl(200, 5%, 1%)
-  - &red !color
+    dark: hsl(200, 5%, 1%)
+  - !color &red
     light: hsl(0, 100%, 45%)
-    dark:  hsl(0, 100%, 70%)
-  - &orange !color
+    dark: hsl(0, 100%, 70%)
+  - !color &orange
     light: hsl(30, 100%, 40%)
-    dark:  hsl(30, 100%, 50%)
-  - &yellow !color
+    dark: hsl(30, 100%, 50%)
+  - !color &yellow
     light: hsl(50, 100%, 35%)
-    dark:  hsl(50, 100%, 70%)
-  - &green !color
+    dark: hsl(50, 100%, 70%)
+  - !color &green
     light: hsl(80, 100%, 40%)
-    dark:  hsl(80, 100%, 50%)
-  - &blue !color
+    dark: hsl(80, 100%, 50%)
+  - !color &blue
     light: hsl(200, 100%, 45%)
-    dark:  hsl(200, 100%, 70%)
-  - &purple !color
+    dark: hsl(200, 100%, 70%)
+  - !color &purple
     light: hsl(260, 100%, 60%)
-    dark:  hsl(260, 100%, 70%)
-  - &pink !color
+    dark: hsl(260, 100%, 70%)
+  - !color &pink
     light: hsl(335, 100%, 50%)
-    dark:  hsl(335, 100%, 55%)
-  - &accent !color
+    dark: hsl(335, 100%, 55%)
+  - !color &accent
     light: hsl(40, 100%, 50%)
-    dark:  hsl(40, 100%, 60%)
+    dark: hsl(40, 100%, 60%)
 
   - variables:
-    - &inputBackground !emphasize [*background, 5]
-    - &inputBorder !emphasize [*inputBackground, 5]
-    - &accentForeground !mostReadable [*accent, *background, *foreground]
+      - !emphasize &inputBackground [*background, 5]
+      - !emphasize &inputBorder [*inputBackground, 5]
+      - !mostReadable &accentForeground [*accent, *background, *foreground]
+      - !transparent &selection [!emphasize [*background, 15], 90]
 
 colors:
   contrastActiveBorder: !undefined
@@ -62,7 +63,7 @@ colors:
   focusBorder: *accent
   foreground: *foreground
   widget.shadow: !emphasize [*background, 10]
-  selection.background: !transparent [*accent, 90]
+  selection.background: *selection
   descriptionForeground: !undefined
   errorForeground: *red
   icon.foreground: !undefined
@@ -102,18 +103,23 @@ colors:
   inputOption.activeForeground: !undefined
   inputValidation.errorBackground: !transparent [*red, .6]
   inputValidation.errorBorder: *red
-  inputValidation.errorForeground: !mostReadable [*red, *foreground, *background]
+  inputValidation.errorForeground:
+    !mostReadable [*red, *foreground, *background]
   inputValidation.infoBackground: !transparent [*pink, .6]
   inputValidation.infoBorder: *pink
-  inputValidation.infoForeground: !mostReadable [*pink, *background, *foreground]
+  inputValidation.infoForeground:
+    !mostReadable [*pink, *background, *foreground]
   inputValidation.warningBackground: !transparent [*orange, .6]
   inputValidation.warningBorder: *orange
-  inputValidation.warningForeground: !mostReadable [*orange, *background, *foreground]
+  inputValidation.warningForeground:
+    !mostReadable [*orange, *background, *foreground]
 
   scrollbar.shadow: !transparent [*white, 0]
   scrollbarSlider.background: !transparent [!emphasize [*background, 10], 0.6]
-  scrollbarSlider.hoverBackground: !transparent [!emphasize [*background, 10], 0.8]
-  scrollbarSlider.activeBackground: !transparent [!emphasize [*background, 10], 0.4]
+  scrollbarSlider.hoverBackground:
+    !transparent [!emphasize [*background, 10], 0.8]
+  scrollbarSlider.activeBackground:
+    !transparent [!emphasize [*background, 10], 0.4]
 
   badge.background: *accent
   badge.foreground: *accentForeground
@@ -121,21 +127,22 @@ colors:
   progressBar.background: *accent
 
   list.activeSelectionBackground: !transparent [*accent, 0.1]
-  list.activeSelectionForeground: !mostReadable 
+  list.activeSelectionForeground: !mostReadable
     - !mix [*background, *accent, 0.1]
     - *foreground
     - *background
   list.dropBackground: !undefined
   list.focusBackground: !transparent [*accent, 0.2]
-  list.focusForeground: !mostReadable 
+  list.focusForeground: !mostReadable
     - !mix [*background, *accent, 0.2]
     - *foreground
     - *background
   list.highlightForeground: *accent
   list.hoverBackground: !emphasize [*background, 5]
-  list.hoverForeground: !mostReadable [!emphasize [*background, 5], *background, *foreground]
+  list.hoverForeground:
+    !mostReadable [!emphasize [*background, 5], *background, *foreground]
   list.inactiveSelectionBackground: !transparent [*accent, 0.15]
-  list.inactiveSelectionForeground: !mostReadable 
+  list.inactiveSelectionForeground: !mostReadable
     - !mix [*background, *accent, 0.15]
     - *foreground
     - *background
@@ -164,7 +171,7 @@ colors:
 
   sideBar.background: *background
   sideBar.foreground: !undefined
-  sideBar.border: !undefined
+  sideBar.border: !emphasize [*background, 5]
   sideBar.dropBackground: !undefined
   sideBarTitle.foreground: !undefined
   sideBarSectionHeader.background: *background
@@ -176,7 +183,7 @@ colors:
   minimap.errorHighlight: !transparent [*red, 0.4]
   minimap.warningHighlight: !transparent [*orange, 0.4]
   minimap.background: !undefined
-  minimapSlider.background: !undefined 
+  minimapSlider.background: !undefined
   minimapSlider.hoverBackground: !undefined
   minimapSlider.activeBackground: !undefined
   minimapGutter.addedBackground: !desaturate [*green, 50]
@@ -226,21 +233,21 @@ colors:
   editorCursor.background: *accentForeground
   editorCursor.foreground: *accent
 
-  editor.selectionBackground: !transparent [*accent, 0.4]
+  editor.selectionBackground: *selection
   editor.selectionForeground: !undefined
   editor.inactiveSelectionBackground: !undefined
   editor.selectionHighlightBackground: !undefined
   editor.selectionHighlightBorder: !undefined
 
-  editor.wordHighlightBackground: !emphasize [*background, 5]
+  editor.wordHighlightBackground: !emphasize [*background, 2]
   editor.wordHighlightBorder: !undefined
   editor.wordHighlightStrongBackground: !undefined
   editor.wordHighlightStrongBorder: !undefined
 
-  editor.findMatchBackground: !undefined
-  editor.findMatchHighlightBackground: !transparent [*foreground, 0.1]
-  editor.findRangeHighlightBackground: !undefined
-  editor.findMatchBorder: *accent
+  editor.findMatchBackground: !transparent [*accent, 0.1]
+  editor.findMatchHighlightBackground: !transparent [*accent, 0.3]
+  editor.findRangeHighlightBackground: !transparent [*accent, 0.05]
+  editor.findMatchBorder: !undefined
   editor.findMatchHighlightBorder: !undefined
   editor.findRangeHighlightBorder: !undefined
 
@@ -255,7 +262,7 @@ colors:
 
   editorLink.activeForeground: *accent
 
-  editor.rangeHighlightBackground: !undefined
+  editor.rangeHighlightBackground: !transparent [*accent, 0.2]
   editor.rangeHighlightBorder: !undefined
   editor.symbolHighlightBackground: !undefined
   editor.symbolHighlightBorder: !undefined
@@ -313,7 +320,8 @@ colors:
   editorGutter.commentRangeForeground: !undefined
   editorGutter.foldingControlForeground: !undefined
 
-  diffEditor.insertedTextBackground: !transparent [!desaturate [*green, 50], 0.2]
+  diffEditor.insertedTextBackground:
+    !transparent [!desaturate [*green, 50], 0.2]
   diffEditor.insertedTextBorder: !undefined
   diffEditor.removedTextBackground: !transparent [!desaturate [*red, 50], 0.2]
   diffEditor.removedTextBorder: !undefined
@@ -385,7 +393,8 @@ colors:
   statusBar.foreground: *foreground
   statusBar.border: !undefined
   statusBar.debuggingBackground: *orange
-  statusBar.debuggingForeground: !mostReadable [*orange, *foreground, *background]
+  statusBar.debuggingForeground:
+    !mostReadable [*orange, *foreground, *background]
   statusBar.debuggingBorder: !undefined
   statusBar.noFolderBackground: *background
   statusBar.noFolderForeground: *foreground
@@ -396,7 +405,8 @@ colors:
   statusBarItem.prominentForeground: *accentForeground
   statusBarItem.prominentHoverBackground: !emphasize [*accent, -10]
   statusBarItem.remoteBackground: !emphasize [*green, -10]
-  statusBarItem.remoteForeground: !mostReadable [!emphasize [*green, -10], *foreground, *background]
+  statusBarItem.remoteForeground:
+    !mostReadable [!emphasize [*green, -10], *foreground, *background]
 
   titleBar.activeBackground: !emphasize [*background, 5]
   titleBar.activeForeground: !undefined
@@ -566,10 +576,10 @@ tokenColors:
   - name: Comment
     scope: comment
     settings:
-      foreground: !transparent [*red, 0.1]
+      foreground: *gray
   - scope:
-    - meta.embedded
-    - source.groovy.embedded
+      - meta.embedded
+      - source.groovy.embedded
     settings:
       foreground: *foreground
   - name: String
@@ -578,13 +588,13 @@ tokenColors:
       foreground: *yellow
   - name: Template Definition
     scope:
-    - punctuation.definition.template-expression
-    - punctuation.section.embedded
+      - punctuation.definition.template-expression
+      - punctuation.section.embedded
     settings:
       foreground: *pink
   - name: Reset JavaScript string interpolation expression
     scope:
-    - meta.template.expression
+      - meta.template.expression
     settings:
       foreground: *foreground
   - name: Number
@@ -727,7 +737,7 @@ tokenColors:
       foreground: *foreground
   - name: Markdown List Punctuation
     scope:
-    - punctuation.definition.list.begin.markdown
+      - punctuation.definition.list.begin.markdown
     settings:
       foreground: *green
   - scope: token.info-token
@@ -746,4 +756,3 @@ tokenColors:
     scope: variable.language
     settings:
       foreground: *orange
-
