@@ -2,7 +2,11 @@
   "name": "prism",
   "displayName": "Prism",
   "description": "A colorful light/dark theme",
-  "version": "0.0.1",
+  "license": "mit",
+  "repository": {
+    "url": "https://github.com/friggeri/prism"
+  },
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.64.0"
   },
