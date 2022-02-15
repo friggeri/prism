@@ -1,12 +1,12 @@
 {
-  "name": "prism",
+  "name": "prism-vscode-theme",
   "displayName": "Prism",
   "description": "A colorful light/dark theme",
   "license": "mit",
   "repository": {
     "url": "https://github.com/friggeri/prism"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.64.0"
   },
@@ -21,6 +21,7 @@
     "build:dev": "ts-node --transpile-only src/build.ts",
     "watch": "npm-watch"
   },
+  "publisher": "friggeri",
   "contributes": {
     "themes": [
       {
