@@ -1,0 +1,749 @@
+# yaml-language-server: $schema=schemas/color-theme.json
+name: !variant?  
+  light: Prism (Light)
+  dark: Prism (Dark)
+
+type: !variant? 
+  light: light
+  dark: dark
+
+semanticHighlighting: true
+
+refs:
+  - &background !color
+    light: hsl(200, 5%, 98%)
+    dark:  hsl(200, 5%, 15%)
+  - &foreground !color 
+    light: hsl(200, 5%, 15%)
+    dark:  hsl(200, 5%, 98%)
+  - &white !color 
+    light: hsl(200, 5%, 99%)
+    dark: hsl(200, 5%, 99%)
+  - &gray  !color 
+    light: hsl(200, 5%, 50%)
+    dark:  hsl(200, 5%, 50%)
+  - &black !color 
+    light: hsl(200, 5%, 1%)
+    dark:  hsl(200, 5%, 1%)
+  - &red !color
+    light: hsl(0, 100%, 45%)
+    dark:  hsl(0, 100%, 70%)
+  - &orange !color
+    light: hsl(30, 100%, 40%)
+    dark:  hsl(30, 100%, 50%)
+  - &yellow !color
+    light: hsl(50, 100%, 35%)
+    dark:  hsl(50, 100%, 70%)
+  - &green !color
+    light: hsl(80, 100%, 40%)
+    dark:  hsl(80, 100%, 50%)
+  - &blue !color
+    light: hsl(200, 100%, 45%)
+    dark:  hsl(200, 100%, 70%)
+  - &purple !color
+    light: hsl(260, 100%, 60%)
+    dark:  hsl(260, 100%, 70%)
+  - &pink !color
+    light: hsl(335, 100%, 50%)
+    dark:  hsl(335, 100%, 55%)
+  - &accent !color
+    light: hsl(40, 100%, 50%)
+    dark:  hsl(40, 100%, 60%)
+
+  - variables:
+    - &inputBackground !emphasize [*background, 5]
+    - &inputBorder !emphasize [*inputBackground, 5]
+    - &accentForeground !mostReadable [*accent, *background, *foreground]
+
+colors:
+  contrastActiveBorder: !undefined
+  contrastBorder: !undefined
+
+  focusBorder: *accent
+  foreground: *foreground
+  widget.shadow: !emphasize [*background, 10]
+  selection.background: !transparent [*accent, 90]
+  descriptionForeground: !undefined
+  errorForeground: *red
+  icon.foreground: !undefined
+
+  window.activeBorder: !undefined
+  window.inactiveBorder: !undefined
+
+  textBlockQuote.background: !undefined
+  textBlockQuote.border: !undefined
+  textCodeBlock.background: !undefined
+  textLink.foreground: *accent
+  textLink.activeForeground: !emphasize [*accent, 10]
+  textPreformat.foreground: *foreground
+  textSeparator.foreground: !emphasize [*background, 10]
+
+  button.background: *accent
+  button.foreground: *accentForeground
+  button.hoverBackground: !emphasize [*accent, 15]
+  button.secondaryBackground: !undefined
+  button.secondaryForeground: !undefined
+  button.secondaryHoverBackground: !undefined
+  checkbox.background: *inputBackground
+  checkbox.foreground: !undefined
+  checkbox.border: !undefined
+
+  dropdown.background: *inputBackground
+  dropdown.listBackground: !undefined
+  dropdown.foreground: !undefined
+  dropdown.border: *inputBorder
+
+  input.background: *inputBackground
+  input.border: *inputBorder
+  input.foreground: !undefined
+  input.placeholderForeground: !undefined
+  inputOption.activeBackground: !undefined
+  inputOption.activeBorder: !undefined
+  inputOption.activeForeground: !undefined
+  inputValidation.errorBackground: !transparent [*red, .6]
+  inputValidation.errorBorder: *red
+  inputValidation.errorForeground: !mostReadable [*red, *foreground, *background]
+  inputValidation.infoBackground: !transparent [*pink, .6]
+  inputValidation.infoBorder: *pink
+  inputValidation.infoForeground: !mostReadable [*pink, *background, *foreground]
+  inputValidation.warningBackground: !transparent [*orange, .6]
+  inputValidation.warningBorder: *orange
+  inputValidation.warningForeground: !mostReadable [*orange, *background, *foreground]
+
+  scrollbar.shadow: !transparent [*white, 0]
+  scrollbarSlider.background: !transparent [!emphasize [*background, 10], 0.6]
+  scrollbarSlider.hoverBackground: !transparent [!emphasize [*background, 10], 0.8]
+  scrollbarSlider.activeBackground: !transparent [!emphasize [*background, 10], 0.4]
+
+  badge.background: *accent
+  badge.foreground: *accentForeground
+
+  progressBar.background: *accent
+
+  list.activeSelectionBackground: !transparent [*accent, 0.1]
+  list.activeSelectionForeground: !mostReadable 
+    - !mix [*background, *accent, 0.1]
+    - *foreground
+    - *background
+  list.dropBackground: !undefined
+  list.focusBackground: !transparent [*accent, 0.2]
+  list.focusForeground: !mostReadable 
+    - !mix [*background, *accent, 0.2]
+    - *foreground
+    - *background
+  list.highlightForeground: *accent
+  list.hoverBackground: !emphasize [*background, 5]
+  list.hoverForeground: !mostReadable [!emphasize [*background, 5], *background, *foreground]
+  list.inactiveSelectionBackground: !transparent [*accent, 0.15]
+  list.inactiveSelectionForeground: !mostReadable 
+    - !mix [*background, *accent, 0.15]
+    - *foreground
+    - *background
+  list.inactiveFocusBackground: !undefined
+  list.invalidItemForeground: !undefined
+  list.errorForeground: *red
+  list.warningForeground: *orange
+  listFilterWidget.background: !undefined
+  listFilterWidget.outline: !undefined
+  listFilterWidget.noMatchesOutline: !undefined
+  list.filterMatchBackground: !undefined
+  list.filterMatchBorder: !undefined
+  tree.indentGuidesStroke: !undefined
+  list.deemphasizedForeground: !undefined
+
+  activityBar.background: *background
+  activityBar.foreground: *foreground
+  activityBar.inactiveForeground: !emphasize [*foreground, -10]
+  activityBar.dropBorder: *accent
+  activityBar.border: !undefined
+  activityBarBadge.background: *accent
+  activityBarBadge.foreground: *accentForeground
+  activityBar.activeBorder: *accent
+  activityBar.activeBackground: !transparent [*accent, 0.1]
+  activityBar.activeFocusBorder: *accent
+
+  sideBar.background: *background
+  sideBar.foreground: !undefined
+  sideBar.border: !undefined
+  sideBar.dropBackground: !undefined
+  sideBarTitle.foreground: !undefined
+  sideBarSectionHeader.background: *background
+  sideBarSectionHeader.foreground: !undefined
+  sideBarSectionHeader.border: !undefined
+
+  minimap.findMatchHighlight: !undefined
+  minimap.selectionHighlight: !transparent [*accent, 0.4]
+  minimap.errorHighlight: !transparent [*red, 0.4]
+  minimap.warningHighlight: !transparent [*orange, 0.4]
+  minimap.background: !undefined
+  minimapSlider.background: !undefined 
+  minimapSlider.hoverBackground: !undefined
+  minimapSlider.activeBackground: !undefined
+  minimapGutter.addedBackground: !desaturate [*green, 50]
+  minimapGutter.deletedBackground: !desaturate [*red, 50]
+  minimapGutter.modifiedBackground: !desaturate [*blue, 50]
+
+  editorGroup.border: !emphasize [*background, 10]
+  editorGroup.dropBackground: !transparent [*accent, .2]
+  editorGroupHeader.noTabsBackground: !emphasize [*background, 5]
+  editorGroupHeader.tabsBackground: !emphasize [*background, 5]
+  editorGroupHeader.tabsBorder: !undefined
+  editorGroupHeader.border: !undefined
+  editorGroup.emptyBackground: !undefined
+  editorGroup.focusedEmptyBorder: !undefined
+  tab.activeBackground: *background
+  tab.unfocusedActiveBackground: !undefined
+  tab.activeForeground: !undefined
+  tab.border: !emphasize [*background, 10]
+  tab.activeBorder: *accent
+  tab.unfocusedActiveBorder: !undefined
+  tab.activeBorderTop: !undefined
+  tab.unfocusedActiveBorderTop: !undefined
+  tab.lastPinnedBorder: !transparent [*accent, .4]
+  tab.inactiveBackground: !emphasize [*background, 5]
+  tab.unfocusedInactiveBackground: !undefined
+  tab.inactiveForeground: !undefined
+  tab.unfocusedActiveForeground: !undefined
+  tab.unfocusedInactiveForeground: !undefined
+  tab.hoverBackground: !emphasize [*background, 10]
+  tab.unfocusedHoverBackground: !undefined
+  tab.hoverForeground: !undefined
+  tab.unfocusedHoverForeground: !undefined
+  tab.hoverBorder: !undefined
+  tab.unfocusedHoverBorder: !undefined
+  tab.activeModifiedBorder: !desaturate [*blue, 50]
+  tab.inactiveModifiedBorder: !undefined
+  tab.unfocusedActiveModifiedBorder: !undefined
+  tab.unfocusedInactiveModifiedBorder: !undefined
+  editorPane.background: !emphasize [*background, 5]
+
+  editor.background: *background
+  editor.foreground: *foreground
+
+  editorLineNumber.foreground: !emphasize [*foreground, -60]
+  editorLineNumber.activeForeground: !emphasize [*foreground, -20]
+
+  editorCursor.background: *accentForeground
+  editorCursor.foreground: *accent
+
+  editor.selectionBackground: !transparent [*accent, 0.4]
+  editor.selectionForeground: !undefined
+  editor.inactiveSelectionBackground: !undefined
+  editor.selectionHighlightBackground: !undefined
+  editor.selectionHighlightBorder: !undefined
+
+  editor.wordHighlightBackground: !emphasize [*background, 5]
+  editor.wordHighlightBorder: !undefined
+  editor.wordHighlightStrongBackground: !undefined
+  editor.wordHighlightStrongBorder: !undefined
+
+  editor.findMatchBackground: !undefined
+  editor.findMatchHighlightBackground: !transparent [*foreground, 0.1]
+  editor.findRangeHighlightBackground: !undefined
+  editor.findMatchBorder: *accent
+  editor.findMatchHighlightBorder: !undefined
+  editor.findRangeHighlightBorder: !undefined
+
+  searchEditor.findMatchBackground: !undefined
+  searchEditor.findMatchBorder: !undefined
+  searchEditor.textInputBorder: !undefined
+
+  editor.hoverHighlightBackground: !undefined
+
+  editor.lineHighlightBackground: !emphasize [*background, 5]
+  editor.lineHighlightBorder: !undefined
+
+  editorLink.activeForeground: *accent
+
+  editor.rangeHighlightBackground: !undefined
+  editor.rangeHighlightBorder: !undefined
+  editor.symbolHighlightBackground: !undefined
+  editor.symbolHighlightBorder: !undefined
+
+  editorWhitespace.foreground: !emphasize [*background, 10]
+
+  editorIndentGuide.background: !emphasize [*background, 5]
+  editorIndentGuide.activeBackground: *accent
+  editorRuler.foreground: !emphasize [*background, 5]
+
+  editorCodeLens.foreground: !undefined
+  editorLightBulb.foreground: !undefined
+  editorLightBulbAutoFix.foreground: !undefined
+  editorBracketMatch.border: !emphasize [*background, -10]
+  editorBracketMatch.background: !emphasize [*background, -5]
+  editor.foldBackground: !transparent [*purple, 0.33]
+
+  editorOverviewRuler.background: !undefined
+  editorOverviewRuler.border: !emphasize [*background, 10]
+  editorOverviewRuler.findMatchForeground: !undefined
+  editorOverviewRuler.rangeHighlightForeground: !undefined
+  editorOverviewRuler.selectionHighlightForeground: *accent
+  editorOverviewRuler.wordHighlightForeground: !undefined
+  editorOverviewRuler.wordHighlightStrongForeground: !undefined
+  editorOverviewRuler.modifiedForeground: !desaturate [*blue, 50]
+  editorOverviewRuler.addedForeground: !desaturate [*green, 50]
+  editorOverviewRuler.deletedForeground: !desaturate [*red, 50]
+  editorOverviewRuler.errorForeground: *red
+  editorOverviewRuler.warningForeground: *orange
+  editorOverviewRuler.infoForeground: *pink
+  editorOverviewRuler.bracketMatchForeground: *accent
+
+  editorError.foreground: *red
+  editorError.border: !undefined
+  editorError.background: !undefined
+  editorWarning.background: !undefined
+  editorWarning.border: !undefined
+  editorWarning.foreground: *orange
+  editorInfo.background: !undefined
+  editorInfo.border: !undefined
+  editorInfo.foreground: *pink
+  editorHint.border: !undefined
+  editorHint.foreground: !undefined
+  problemsErrorIcon.foreground: *red
+  problemsWarningIcon.foreground: *orange
+  problemsInfoIcon.foreground: *pink
+
+  editorUnnecessaryCode.opacity: !undefined
+  editorUnnecessaryCode.border: !undefined
+
+  editorGutter.background: !undefined
+  editorGutter.modifiedBackground: !desaturate [*blue, 40]
+  editorGutter.addedBackground: !desaturate [*green, 40]
+  editorGutter.deletedBackground: !desaturate [*red, 10]
+  editorGutter.commentRangeForeground: !undefined
+  editorGutter.foldingControlForeground: !undefined
+
+  diffEditor.insertedTextBackground: !transparent [!desaturate [*green, 50], 0.2]
+  diffEditor.insertedTextBorder: !undefined
+  diffEditor.removedTextBackground: !transparent [!desaturate [*red, 50], 0.2]
+  diffEditor.removedTextBorder: !undefined
+  diffEditor.border: !undefined
+  diffEditor.diagonalFill: !undefined
+
+  editorWidget.background: !emphasize [*background, 2]
+  editorWidget.foreground: !undefined
+  editorWidget.border: !emphasize [*background, 4]
+  editorWidget.resizeBorder: !emphasize [*background, 4]
+  editorSuggestWidget.background: !undefined
+  editorSuggestWidget.border: !undefined
+  editorSuggestWidget.foreground: !undefined
+  editorSuggestWidget.highlightForeground: *accent
+  editorSuggestWidget.selectedBackground: !undefined
+
+  editorHoverWidget.background: !undefined
+  editorHoverWidget.foreground: !undefined
+  editorHoverWidget.border: !undefined
+
+  debugExceptionWidget.background: !undefined
+  debugExceptionWidget.border: !undefined
+
+  editorMarkerNavigation.background: *background
+  editorMarkerNavigationError.background: *red
+  editorMarkerNavigationWarning.background: *orange
+  editorMarkerNavigationInfo.background: *pink
+
+  peekView.border: !undefined
+  peekViewEditor.background: !undefined
+  peekViewEditorGutter.background: !undefined
+  peekViewEditor.matchHighlightBackground: !undefined
+  peekViewEditor.matchHighlightBorder: !undefined
+  peekViewResult.background: !emphasize [*background, 3]
+  peekViewResult.fileForeground: !undefined
+  peekViewResult.lineForeground: !undefined
+  peekViewResult.matchHighlightBackground: !undefined
+  peekViewResult.selectionBackground: !undefined
+  peekViewResult.selectionForeground: !undefined
+  peekViewTitle.background: !emphasize [*background, 3]
+  peekViewTitleDescription.foreground: !undefined
+  peekViewTitleLabel.foreground: !undefined
+
+  merge.border: !undefined
+  merge.commonContentBackground: !undefined
+  merge.commonHeaderBackground: !undefined
+  merge.currentContentBackground: !undefined
+  merge.currentHeaderBackground: !undefined
+  merge.incomingContentBackground: !undefined
+  merge.incomingHeaderBackground: !undefined
+  editorOverviewRuler.commonContentForeground: !undefined
+  editorOverviewRuler.incomingContentForeground: !undefined
+  editorOverviewRuler.currentContentForeground: !undefined
+
+  panel.background: !undefined
+  panel.border: !undefined
+  panel.dropBorder: *accent
+  panelTitle.activeBorder: *accent
+  panelTitle.activeForeground: !undefined
+  panelTitle.inactiveForeground: !undefined
+  panelInput.border: !undefined
+  panelSection.border: !undefined
+  panelSection.dropBackground: !undefined
+  panelSectionHeader.background: !undefined
+  panelSectionHeader.border: !undefined
+  panelSectionHeader.foreground: !undefined
+
+  statusBar.background: *background
+  statusBar.foreground: *foreground
+  statusBar.border: !undefined
+  statusBar.debuggingBackground: *orange
+  statusBar.debuggingForeground: !mostReadable [*orange, *foreground, *background]
+  statusBar.debuggingBorder: !undefined
+  statusBar.noFolderBackground: *background
+  statusBar.noFolderForeground: *foreground
+  statusBar.noFolderBorder: !undefined
+  statusBarItem.activeBackground: !undefined
+  statusBarItem.hoverBackground: !emphasize [*background, 10]
+  statusBarItem.prominentBackground: *accent
+  statusBarItem.prominentForeground: *accentForeground
+  statusBarItem.prominentHoverBackground: !emphasize [*accent, -10]
+  statusBarItem.remoteBackground: !emphasize [*green, -10]
+  statusBarItem.remoteForeground: !mostReadable [!emphasize [*green, -10], *foreground, *background]
+
+  titleBar.activeBackground: !emphasize [*background, 5]
+  titleBar.activeForeground: !undefined
+  titleBar.inactiveBackground: *background
+  titleBar.inactiveForeground: !undefined
+  titleBar.border: !emphasize [*background, 5]
+
+  menubar.selectionBackground: !undefined
+  menubar.selectionBorder: !undefined
+  menubar.selectionForeground: !undefined
+  menu.background: *background
+  menu.foreground: *foreground
+  menu.selectionBackground: !transparent [*accent, 0.8]
+  menu.selectionForeground: *accentForeground
+  menu.selectionBorder: !undefined
+  menu.separatorBackground: !emphasize [*background, 10]
+  menu.border: !undefined
+
+  notificationCenter.border: !undefined
+  notificationCenterHeader.foreground: !undefined
+  notificationCenterHeader.background: !undefined
+  notificationToast.border: !undefined
+  notifications.border: !undefined
+  notifications.foreground: !undefined
+  notificationsErrorIcon.foreground: *red
+  notificationsWarningIcon.foreground: *orange
+  notificationsInfoIcon.foreground: *pink
+  notifications.background: *background
+  notificationLink.foreground: !undefined
+
+  extensionButton.prominentBackground: *accent
+  extensionButton.prominentForeground: *accentForeground
+  extensionButton.prominentHoverBackground: !emphasize [*accent, -10]
+  extensionBadge.remoteBackground: !undefined
+  extensionBadge.remoteForeground: !undefined
+
+  pickerGroup.border: !emphasize [*background, -10]
+  pickerGroup.foreground: *accent
+  quickInput.background: !undefined
+  quickInput.foreground: !undefined
+  quickInputTitle.background: !undefined
+
+  terminal.background: !undefined
+  terminal.border: !undefined
+  terminal.foreground: !undefined
+  terminal.ansiBlack: !variant?
+    light: *black
+    dark: *white
+  terminal.ansiRed: *red
+  terminal.ansiGreen: *green
+  terminal.ansiYellow: *yellow
+  terminal.ansiBlue: *purple
+  terminal.ansiMagenta: *pink
+  terminal.ansiCyan: *blue
+  terminal.ansiWhite: !variant?
+    light: *white
+    dark: *black
+  terminal.ansiBrightBlack: !variant?
+    light: *black
+    dark: *white
+  terminal.ansiBrightRed: *red
+  terminal.ansiBrightGreen: *green
+  terminal.ansiBrightYellow: *yellow
+  terminal.ansiBrightBlue: *purple
+  terminal.ansiBrightMagenta: *pink
+  terminal.ansiBrightCyan: *blue
+  terminal.ansiBrightWhite: !variant?
+    light: *white
+    dark: *black
+  terminal.selectionBackground: *accent
+  terminalCursor.foreground: *accent
+  terminalCursor.background: *accentForeground
+
+  debugToolBar.background: !undefined
+  debugToolBar.border: !undefined
+  editor.stackFrameHighlightBackground: !undefined
+  editor.focusedStackFrameHighlightBackground: !undefined
+  debugView.exceptionLabelBackground: !undefined
+  debugView.exceptionLabelForeground: !undefined
+  debugView.stateLabelBackground: !undefined
+  debugView.stateLabelForeground: !undefined
+  debugView.valueChangedHighlight: !undefined
+  debugTokenExpression.name: !undefined
+  debugTokenExpression.value: !undefined
+  debugTokenExpression.string: !undefined
+  debugTokenExpression.boolean: !undefined
+  debugTokenExpression.number: !undefined
+
+  welcomePage.background: !undefined
+  walkThrough.embeddedEditorBackground: !undefined
+
+  scm.providerBorder: !undefined
+
+  gitDecoration.addedResourceForeground: !desaturate [*green, 50]
+  gitDecoration.modifiedResourceForeground: !desaturate [*blue, 50]
+  gitDecoration.deletedResourceForeground: !desaturate [*red, 50]
+  gitDecoration.ignoredResourceForeground: !undefined
+  gitDecoration.conflictingResourceForeground: !undefined
+  gitDecoration.stageDeletedResourceForeground: !desaturate [*red, 50]
+  gitDecoration.stageModifiedResourceForeground: !desaturate [*blue, 50]
+  gitDecoration.submoduleResourceForeground: !undefined
+  gitDecoration.untrackedResourceForeground: !undefined
+
+  settings.checkboxBackground: !undefined
+  settings.checkboxBorder: !undefined
+  settings.dropdownBackground: !undefined
+  settings.dropdownBorder: !undefined
+  settings.dropdownListBorder: !undefined
+  settings.focusedRowBackground: !undefined
+  settings.headerForeground: !undefined
+  settings.modifiedItemIndicator: !desaturate [*blue, 50]
+  settings.numberInputBackground: !undefined
+  settings.numberInputForeground: !undefined
+  settings.textInputBackground: !undefined
+  settings.textInputForeground: !undefined
+  settings.textInputBorder: !undefined
+  settings.checkboxForeground: !undefined
+  settings.dropdownForeground: !undefined
+  settings.numberInputBorder: !undefined
+
+  breadcrumb.background: !undefined
+  breadcrumb.foreground: !undefined
+  breadcrumb.activeSelectionForeground: !undefined
+  breadcrumb.focusForeground: !undefined
+  breadcrumbPicker.background: !undefined
+
+  editor.snippetTabstopHighlightBorder: !undefined
+  editor.snippetTabstopHighlightBackground: !undefined
+  editor.snippetFinalTabstopHighlightBackground: !undefined
+  editor.snippetFinalTabstopHighlightBorder: !undefined
+
+  symbolIcon.arrayForeground: !undefined
+  symbolIcon.booleanForeground: !undefined
+  symbolIcon.classForeground: !undefined
+  symbolIcon.colorForeground: !undefined
+  symbolIcon.constantForeground: !undefined
+  symbolIcon.constructorForeground: !undefined
+  symbolIcon.enumeratorForeground: !undefined
+  symbolIcon.enumeratorMemberForeground: !undefined
+  symbolIcon.eventForeground: !undefined
+  symbolIcon.fieldForeground: !undefined
+  symbolIcon.fileForeground: !undefined
+  symbolIcon.folderForeground: !undefined
+  symbolIcon.functionForeground: !undefined
+  symbolIcon.interfaceForeground: !undefined
+  symbolIcon.keyForeground: !undefined
+  symbolIcon.keywordForeground: !undefined
+  symbolIcon.methodForeground: !undefined
+  symbolIcon.moduleForeground: !undefined
+  symbolIcon.namespaceForeground: !undefined
+  symbolIcon.nullForeground: !undefined
+  symbolIcon.numberForeground: !undefined
+  symbolIcon.objectForeground: !undefined
+  symbolIcon.operatorForeground: !undefined
+  symbolIcon.packageForeground: !undefined
+  symbolIcon.propertyForeground: !undefined
+  symbolIcon.referenceForeground: !undefined
+  symbolIcon.snippetForeground: !undefined
+  symbolIcon.stringForeground: !undefined
+  symbolIcon.structForeground: !undefined
+  symbolIcon.textForeground: !undefined
+  symbolIcon.typeParameterForeground: !undefined
+  symbolIcon.unitForeground: !undefined
+  symbolIcon.variableForeground: !undefined
+
+tokenColors:
+  - name: Comment
+    scope: comment
+    settings:
+      foreground: !transparent [*red, 0.1]
+  - scope:
+    - meta.embedded
+    - source.groovy.embedded
+    settings:
+      foreground: *foreground
+  - name: String
+    scope: string
+    settings:
+      foreground: *yellow
+  - name: Template Definition
+    scope:
+    - punctuation.definition.template-expression
+    - punctuation.section.embedded
+    settings:
+      foreground: *pink
+  - name: Reset JavaScript string interpolation expression
+    scope:
+    - meta.template.expression
+    settings:
+      foreground: *foreground
+  - name: Number
+    scope: constant.numeric
+    settings:
+      foreground: *purple
+  - name: Built-in constant
+    scope: constant.language
+    settings:
+      foreground: *purple
+  - name: User-defined constant
+    scope: constant.character, constant.other
+    settings:
+      foreground: *purple
+  - name: Variable
+    scope: variable
+    settings:
+      foreground: *foreground
+  - name: Keyword
+    scope: keyword
+    settings:
+      foreground: *pink
+  - name: Storage
+    scope: storage
+    settings:
+      foreground: *pink
+  - name: Storage type
+    scope: storage.type
+    settings:
+      foreground: *blue
+  - name: Class name
+    scope: entity.name.type, entity.name.class, entity.name.namespace, entity.name.scope-resolution
+    settings:
+      foreground: *green
+  - name: Inherited class
+    scope: entity.other.inherited-class
+    settings:
+      foreground: *green
+  - name: Function name
+    scope: entity.name.function
+    settings:
+      foreground: *green
+  - name: Function argument
+    scope: variable.parameter
+    settings:
+      foreground: *orange
+  - name: Tag name
+    scope: entity.name.tag
+    settings:
+      foreground: *pink
+  - name: Tag attribute
+    scope: entity.other.attribute-name
+    settings:
+      foreground: *green
+  - name: Library function
+    scope: support.function
+    settings:
+      foreground: *blue
+  - name: Library constant
+    scope: support.constant
+    settings:
+      foreground: *blue
+  - name: Library class/type
+    scope: support.type, support.class
+    settings:
+      foreground: *blue
+  - name: Invalid
+    scope: invalid
+    settings:
+      foreground: *red
+  - name: Invalid deprecated
+    scope: invalid.deprecated
+    settings:
+      foreground: *red
+  - name: JSON String
+    scope: meta.structure.dictionary.json string.quoted.double.json
+    settings:
+      foreground: foreground
+  - name: diff.header
+    scope: meta.diff, meta.diff.header
+    settings:
+      foreground: *gray
+  - name: diff.deleted
+    scope: markup.deleted
+    settings:
+      foreground: *red
+  - name: diff.inserted
+    scope: markup.inserted
+    settings:
+      foreground: *green
+  - name: diff.changed
+    scope: markup.changed
+    settings:
+      foreground: *yellow
+  - scope: constant.numeric.line-number.find-in-files - match
+    settings:
+      foreground: *purple
+  - scope: entity.name.filename.find-in-files
+    settings:
+      foreground: *yellow
+  - name: Markup Quote
+    scope: markup.quote
+    settings:
+      foreground: *pink
+  - name: Markup Lists
+    scope: markup.list
+    settings:
+      foreground: *yellow
+  - name: Markup Styling
+    scope: markup.bold, markup.italic
+    settings:
+      foreground: *blue
+  - name: Markup Inline
+    scope: markup.inline.raw
+    settings:
+      foreground: *orange
+  - name: Markup Headings
+    scope: markup.heading
+    settings:
+      foreground: *green
+  - name: Markup Setext Header
+    scope: markup.heading.setext
+    settings:
+      foreground: *green
+  - name: Markdown Quote
+    scope: markup.quote.markdown
+    settings:
+      foreground: *gray
+  - name: Markdown Link Title/Description
+    scope: string.other.link.title.markdown,string.other.link.description.markdown
+    settings:
+      foreground: *purple
+  - name: Markdown Underline Link/Image
+    scope: markup.underline.link.markdown,markup.underline.link.image.markdown
+    settings:
+      foreground: *yellow
+  - name: Markdown Punctuation Definition Link
+    scope: markup.list.unnumbered.markdown, markup.list.numbered.markdown
+    settings:
+      foreground: *foreground
+  - name: Markdown List Punctuation
+    scope:
+    - punctuation.definition.list.begin.markdown
+    settings:
+      foreground: *green
+  - scope: token.info-token
+    settings:
+      foreground: *blue
+  - scope: token.warn-token
+    settings:
+      foreground: *orange
+  - scope: token.error-token
+    settings:
+      foreground: *red
+  - scope: token.debug-token
+    settings:
+      foreground: *purple
+  - name: this.self
+    scope: variable.language
+    settings:
+      foreground: *orange
+

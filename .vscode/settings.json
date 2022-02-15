@@ -1,0 +1,13 @@
+{
+  "yaml.customTags": [
+    "!undefined scalar",
+    "!color mapping",
+    "!variant? mapping",
+    "!transparent sequence",
+    "!emphasize sequence",
+    "!saturate sequence",
+    "!desaturate sequence",
+    "!mostReadable sequence",
+    "!mix sequence"
+  ]
+}
