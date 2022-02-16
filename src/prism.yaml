@@ -672,7 +672,7 @@ tokenColors:
   - name: JSON String
     scope: meta.structure.dictionary.json string.quoted.double.json
     settings:
-      foreground: foreground
+      foreground: *foreground
   - name: diff.header
     scope: meta.diff, meta.diff.header
     settings:
