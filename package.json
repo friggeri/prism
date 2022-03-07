@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/friggeri/prism"
   },
-  "version": "1.0.5",
+  "version": "1.0.6",
   "engines": {
     "vscode": "^1.58.0"
   },
