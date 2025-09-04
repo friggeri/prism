@@ -74,11 +74,11 @@ export default async function generate(
 
   const schema = DEFAULT_SCHEMA.extend(tags);
 
-  const source = await fs.readFile(__dirname + "/prism.yaml", "utf-8");
+  const source = await fs.readFile(__dirname + "/pvc.yaml", "utf-8");
   const { refs: _, ...theme } = load(source, { schema }) as { refs: unknown };
 
   await fs.writeFile(
-    path.join(__dirname, `../themes/prism-${variant}-color-theme.json`),
+    path.join(__dirname, `../themes/pvc-${variant}-color-theme.json`),
     JSON.stringify(theme, undefined, 2),
     "utf-8"
   );

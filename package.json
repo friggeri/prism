@@ -1,10 +1,10 @@
 {
-  "name": "prism-vscode-theme",
-  "displayName": "Prism",
+  "name": "pvc-vscode-theme",
+  "displayName": "PVC",
   "description": "A colorful light/dark theme",
   "license": "mit",
   "repository": {
-    "url": "https://github.com/friggeri/prism"
+    "url": "https://github.com/friggeri/pvc"
   },
   "version": "1.0.6",
   "engines": {
@@ -14,7 +14,7 @@
     "Themes"
   ],
   "watch": {
-    "build:dev": "src/prism.yaml"
+    "build:dev": "src/pvc.yaml"
   },
   "scripts": {
     "build": "ts-node src/build.ts",
@@ -25,14 +25,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Prism (Dark)",
+        "label": "PVC (Dark)",
         "uiTheme": "vs-dark",
-        "path": "./themes/prism-dark-color-theme.json"
+        "path": "./themes/pvc-dark-color-theme.json"
       },
       {
-        "label": "Prism (Light)",
+        "label": "PVC (Light)",
         "uiTheme": "vs",
-        "path": "./themes/prism-light-color-theme.json"
+        "path": "./themes/pvc-light-color-theme.json"
       }
     ]
   },

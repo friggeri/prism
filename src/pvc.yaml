@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=schemas/color-theme.json
 name: !variant?
-  light: Prism (Light)
-  dark: Prism (Dark)
+  light: PVC (Light)
+  dark: PVC (Dark)
 
 type: !variant?
   light: light
@@ -11,7 +11,7 @@ semanticHighlighting: true
 
 refs:
   - !color &background
-    light: "#FFFFFF" # hsl(200, 5%, 98%)
+    light: hsl(200, 5%, 100%)
     dark: hsl(200, 5%, 15%)
   - !color &foreground
     light: hsl(200, 5%, 15%)
@@ -29,16 +29,16 @@ refs:
     light: hsl(0, 100%, 45%)
     dark: hsl(0, 100%, 70%)
   - !color &orange
-    light: hsl(30, 100%, 40%)
+    light: hsl(30, 100%, 45%)
     dark: hsl(30, 100%, 50%)
   - !color &yellow
-    light: hsl(50, 100%, 35%)
+    light: hsl(50, 100%, 45%)
     dark: hsl(50, 100%, 70%)
   - !color &green
     light: hsl(80, 100%, 40%)
     dark: hsl(80, 100%, 50%)
   - !color &blue
-    light: hsl(200, 100%, 45%)
+    light: hsl(200, 100%, 50%)
     dark: hsl(200, 100%, 70%)
   - !color &purple
     light: hsl(260, 100%, 60%)
