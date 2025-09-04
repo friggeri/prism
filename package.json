@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/friggeri/pvc"
   },
-  "version": "1.0.6",
+  "version": "1.0.7",
   "engines": {
     "vscode": "^1.58.0"
   },
